@@ -27,3 +27,5 @@ class Cluster:
         # Pro vsechny dimenze teziste vypocitej prumer
         for z in range(0, size):
             self.centroid[z] /= size
+        # Navratova hodnota
+        return True

@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2.0">
+  <zoom_level>6</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>306</x>
+      <y>528</y>
+      <w>228</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>BagOfWords
+--
++name: string
++filename: string
++tweets: dictionary
++words: dictionary
++vectors: dictionary
++word_index: integer
+--
++BagOfWords __init__(filename : string)
++void load_csv()
++void create_vector()
++string word_filter(word : string)
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>12</y>
+      <w>270</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>NGram
+--
++name: string
++filename: string
++tweets: dictionary
++words: dictionary
++vectors: dictionary
++word_index: integer
+--
++Ngram __init__(filename : string)
++void load_csv()
++void create_vector()
++string word_filter(word : string)
++list create_words(tweet_text : string)
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>558</x>
+      <y>528</y>
+      <w>228</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>TFID
+--
++name: string
++filename: string
++tweets: dictionary
++words: dictionary
++vectors: dictionary
++word_index: integer
+--
++TFID __init__(filename : string)
++void load_csv()
++void create_vector()
++string word_filter(word : string)
++list get_words(tweet_text : string)
+
+
+
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>582</x>
+      <y>12</y>
+      <w>228</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Statistics
+--
++stats: dictionary&lt;string, Statistic&gt;
++keys: dictionary
++topic_index: integer
++good: integer
++bad: integer
++input_file: string
++output_file: string
++training_count: integer
+--
++Statistics __init()
++void create_stats()
++void create_topic_map()
++Statistic get_stats(zkratka : string)
++void calculate_statistics()
++void print_complete_stats()
++void print_topic_stats()
++string translate_key(topicKey : string)
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>906</x>
+      <y>12</y>
+      <w>186</w>
+      <h>186</h>
+    </coordinates>
+    <panel_attributes>Statistic
+--
++tp : integer
++fp : integer
++tn : integer
++fn : integer
+--
++Statistic __init__(name : string)
++float accuracy()
++float error()
++float precision()
++float recall()
++float fmeasure</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>804</x>
+      <y>30</y>
+      <w>114</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;170.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>708</x>
+      <y>228</y>
+      <w>228</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>Centroid
+--
++training_base : integer
++training_count : integer
++topic_index : integer
++event_index : integer
++tweets : dictionary
++vectors : dictionary
++clusters : dictionary&lt;string, Cluster&gt;
+--
++Centroid __init__(tweets : dictionary, vectors : dictionary)
++void start()
++float[] calc_distance(vectorA : float[], vectorB : float[])
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1002</x>
+      <y>228</y>
+      <w>186</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>Cluster
+--
++centroid: float[]
++tweets: list
++vectors: list
+--
++Cluster __init__(vector : float[])
++void add_tweet(tweet: list, vector: float[])
++boolean recalculate()
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>930</x>
+      <y>300</y>
+      <w>84</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..n</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>168</x>
+      <y>228</y>
+      <w>180</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>KNN
+--
++training_base : integer
++training_count : integer
++neighbours : integer
++topics: list
++topic_index : integer
++event_index : integer
++tweets : list
++vectory : list
+--
++KNN __init__(tweets : dictionary, vectors : dictionary)
++void start()
++float[] calc_distance(vectorA : float[], vectorB : float[])
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>228</y>
+      <w>270</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>Main
+--
++version: string
+--
++Main __init__()
++void print_usage()
++Object get_vector_algoritm(name : string, filename : string)
++Object get_detection_algoritm(name : string, tweets: list, vectors: list)
++void print_vectors_algoritms()
++void print_detection_algoritms()
++void run()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>486</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>618</x>
+      <y>486</y>
+      <w>18</w>
+      <h>54</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>342</x>
+      <y>312</y>
+      <w>60</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>414</x>
+      <y>192</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>618</x>
+      <y>192</y>
+      <w>18</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>654</x>
+      <y>288</y>
+      <w>66</w>
+      <h>18</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;90.0;10.0</additional_attributes>
+  </element>
+</diagram>

@@ -1,17 +1,1 @@
-blinker==1.4
-chardet==2.3.0
-fail2ban==0.9.6
-httplib2==0.9.2
-pycurl==7.43.0
-pygobject==3.22.0
-pyinotify==0.9.6
-python-apt==1.4.0b3
-python-debian==0.1.30
-python-debianbts==2.6.1
-reportbug==7.1.7
-requests==2.12.4
-six==1.10.0
-systemd-python==233
-unattended-upgrades==0.1
 Unidecode==1.0.22
-urllib3==1.19.1

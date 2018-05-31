@@ -1,2 +1,2 @@
-Main.py tweets.csv tfid knn
+python Main.py tweets.csv tfid knn
 PAUSE

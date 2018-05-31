@@ -132,7 +132,8 @@ class Statistics:
             all[y] /= ok[y]
 
         print("%s: presnost: %.2f%%, uplnost: %.2f%%, fmira: %.2f%%, chybovost %.2f%%, accuracy: %.2f%%" % (
-            "CELKOVE", all[0] * 100, all[1] * 100, all[2] * 100, all[3] * 100, all[4] * 100))
+        "CELKOVE", all[0] * 100, all[1] * 100, all[2] * 100, all[3] * 100, all[4]*100))
+        print("Správně/Celkově: %d/%d" % (self.good, self.good + self.bad))
 
     def print_topic_stats(self):
         # Pro vsechny kategorie

@@ -1,2 +1,2 @@
-Main.py tweets.csv ngram knn
+python Main.py tweets.csv ngram knn
 PAUSE

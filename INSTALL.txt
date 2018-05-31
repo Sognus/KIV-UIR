@@ -1,0 +1,9 @@
+INSTALL:
+
+1. Nainstalovat Python3
+2. Nainstalovat Pip3
+3. Spustit příkaz:
+      pip install requirements.txt
+    
+4. Spustit aplikaci například:
+      python3 Main.py tweets.csv bow knn
